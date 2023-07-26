@@ -1,76 +1,71 @@
 #include "shell.h"
 
 /**
- * _strcpy - copies a string
- * @dest: the destination
- * @src: the source
- *
- * Return: pointer to destination
+ * _strcpy - Copies a string
+ * @dest: The destination buffer
+ * @src: The source string
+ * Return: Pointer to the destination buffer
  */
+
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
-	if (dest == src || src == 0)
+	if (dest == src || src == NULL)
 		return (dest);
-	while (src[i])
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = 0;
+	dest[i] = '\0';
 	return (dest);
 }
 
 /**
- * _strdup - duplicates a string
- * @str: the string to duplicate
- *
- * Return: pointer to the duplicated string
+ * _strdup - Duplicates a string
+ * @str: The string to duplicate
+ * Return: Pointer
  */
+
 char *_strdup(const char *str)
 {
-	int length = 0;
+	int length;
 	char *ret;
 
 	if (str == NULL)
 		return (NULL);
-	while (*str++)
-		length++;
+	length = strlen(str);
 	ret = malloc(sizeof(char) * (length + 1));
-	if (!ret)
+	if (ret == NULL)
 		return (NULL);
-	for (length++; length--;)
-		ret[length] = *--str;
+	strcpy(ret, str);
 	return (ret);
 }
 
 /**
- *_puts - prints an input string
- *@str: the string to be printed
- *
+ * _puts - Prints a string to stdout
+ * @str: The string to print
  * Return: Nothing
  */
+
 void _puts(char *str)
 {
-	int i = 0;
-
-	if (!str)
+	if (str == NULL)
 		return;
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		_putchar(str[i]);
-		i++;
+		_putchar(*str);
+		str++;
 	}
 }
 
 /**
- * _putchar - writes the character c to stdout
+ * _putchar - Writes the character c to stdout
  * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: On success 1 else -1
  */
+
 int _putchar(char c)
 {
 	static int i;
