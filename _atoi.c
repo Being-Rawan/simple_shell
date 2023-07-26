@@ -23,7 +23,7 @@ int is_delim(char c,  char *delim)
 	while (*delim)
 	{
 		if (*delim++ == c)
-			return 1;
+			return (1);
 	}
 	return (0);
 }
@@ -45,7 +45,7 @@ int _isalpha(int c)
  *
  * Return: 0 if no numbers in string, converted number otherwise
  */
-int _atoi( char *s)
+int _atoi(char *s)
 {
 	int sign = 1, output = 0;
 	unsigned int result = 0;
