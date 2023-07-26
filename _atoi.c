@@ -16,7 +16,7 @@ int interactive(info_t *info)
  * @delim: the delimiter string
  * Return: 1 if true, 0 otherwise
  */
-int is_delim(char c, const char *delim)
+int is_delim(char c, char *delim)
 {
 	while (*delim)
 		if (*delim++ == c)
@@ -39,7 +39,7 @@ int _isalpha(int c)
  * @s: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  */
-int _atoi(const char *s)
+int _atoi(char *s)
 {
 	int sign = 1, output = 0;
 	unsigned int result = 0;
